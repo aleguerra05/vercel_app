@@ -37,7 +37,8 @@ router.get(
         }
         const returnTo = req.session.returnTo;
         delete req.session.returnTo;
-        res.redirect(returnTo || "/");
+        //res.redirect(returnTo || "/");
+        res.writeHead(301, { Location: "/" })
       });
     })(req, res, next);
   });
