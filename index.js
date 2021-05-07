@@ -32,7 +32,7 @@ const strategy = new Auth0Strategy(
 
 const session = {
     secret: process.env.SESSION_SECRET,
-    cookie: {},
+    cookie: { sameSite: false },
     resave: false,
     saveUninitialized: false
   };
