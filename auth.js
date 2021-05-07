@@ -75,6 +75,25 @@ router.get(
     res.redirect(logoutURL);
   });
 
+  var axios = require("axios").default;
+
+var options = {
+  method: 'PATCH',
+  url: 'https://dev-6nk1awmf.us.auth0.com/api/v2/clients/UcP9P0zYUN3Pv44nxHtmVgauwwVGc2HD',
+  headers: {
+    'content-type': 'application/json',
+    authorization: 'Bearer API2_ACCESS_TOKEN',
+    'cache-control': 'no-cache'
+  },
+  data: {initiate_login_uri: '/login'}
+};
+
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
+});
+
   
 
 /**
