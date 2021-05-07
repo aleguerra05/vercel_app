@@ -29,7 +29,7 @@ router.get(
         return next(err);
       }
       if (!user) {
-        return res.redirect("/login");
+        return res.redirect("/");
       }
       req.logIn(user, (err) => {
         if (err) {
@@ -37,7 +37,7 @@ router.get(
         }
         const returnTo = req.session.returnTo;
         delete req.session.returnTo;
-        res.redirect(returnTo || "/user");
+        res.redirect(returnTo || "/");
       });
     })(req, res, next);
   });
