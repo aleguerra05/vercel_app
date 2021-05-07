@@ -32,7 +32,7 @@ const strategy = new Auth0Strategy(
 
 const session = {
     secret: process.env.SESSION_SECRET,
-    cookie: { sameSite: false },
+    cookie: {},
     resave: false,
     saveUninitialized: false
   };
@@ -44,6 +44,7 @@ const app = express();
   
 if (app.get("env") === "production") {
     // Serve secure cookies, requires HTTPS
+    app.set('trust proxy', 1); // trust first proxy
     session.cookie.secure = true;
   }
 
