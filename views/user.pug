@@ -2,12 +2,18 @@ extends layout
 
 block layout-content
   div.View.UserView
-    h1.Banner Howdy, #{userProfile.nickname}!
+    h1.Banner Welcome, #{userProfile.displayName}
+    
     div.Message
       div.Title
         h3 Making Us the Best
         h1 Teammate Profile
-      pre.Details=JSON.stringify(userProfile, null, 2)
+        img.teamImage(src=userProfile.picture, alt=userProfile.nickname)
+      //h3 #{userProfile.nickname}
+      
+      a(href='mailto:'+ userProfile.emails[0].value) #{userProfile.emails[0].value}
+      //h3 #{userProfile.emails[0].value}
+      //pre.Details=JSON.stringify(userProfile, null, 2)
     div.NavButtons
       a(href="/logout")
         div.NavButton Log out

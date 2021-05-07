@@ -2,12 +2,16 @@ extends layout
 
 block layout-content
   div.View.WelcomeView
-    h1.Banner WHATABYTE
+    h1.Banner HardKode
     div.Message
       div.Title
-        h3 Making the Best Food
-        h1 Food For Devs
-      span.Details Access the WHATABYTE Team Portal
+        h3 Making the Best
+        h1 HardKode Company Site
+      span.Details Access the HardKode Team Portal
     div.NavButtons
-      a(href="/user")
-          div.NavButton Just dive in!
+      if isAuthenticated
+        a(href="/user")
+          div.NavButton User Profile
+      else
+        a(href="/login")
+          div.NavButton Log in
