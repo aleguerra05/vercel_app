@@ -29,7 +29,7 @@ router.get(
         return next(err);
       }
       if (!user) {
-        return res.redirect("/");
+        return res.redirect("/login");
       }
       req.logIn(user, (err) => {
         if (err) {
